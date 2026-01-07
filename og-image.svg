@@ -1,0 +1,32 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630">
+  <defs>
+    <linearGradient id="bgGrad" x1="100%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#0a1929;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#1a3a5c;stop-opacity:1" />
+    </linearGradient>
+    <linearGradient id="nameGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" style="stop-color:#FFFFFF;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#00F5FF;stop-opacity:1" />
+    </linearGradient>
+    <filter id="glow">
+      <feGaussianBlur stdDeviation="3" result="coloredBlur"/>
+      <feMerge>
+        <feMergeNode in="coloredBlur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+  </defs>
+
+  <!-- Background with gradient matching favicon -->
+  <rect width="1200" height="630" fill="url(#bgGrad)"/>
+
+  <!-- Main content -->
+  <text x="600" y="240" font-family="DM Sans, sans-serif" font-size="120" font-weight="700" fill="url(#nameGrad)" text-anchor="middle" filter="url(#glow)">Abhinandh Ajay</text>
+
+  <text x="600" y="340" font-family="Inter, sans-serif" font-size="40" font-weight="400" fill="#ffffff" opacity="0.85" text-anchor="middle">Software Engineer at Zazzle</text>
+
+  <text x="600" y="420" font-family="Inter, sans-serif" font-size="32" font-weight="300" fill="#ffffff" opacity="0.6" text-anchor="middle">Building software at scale</text>
+
+  <!-- Bottom accent -->
+  <text x="600" y="560" font-family="DM Sans, sans-serif" font-size="28" font-weight="600" fill="#00F5FF" opacity="0.8" text-anchor="middle">abhinandhajay.com</text>
+</svg>
