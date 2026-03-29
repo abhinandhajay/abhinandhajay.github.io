@@ -105,10 +105,46 @@
     });
 
     // ===================
-    // Cursor Blink Animation
+    // Pause Off-Screen Animations
     // ===================
-    // The cursor blinking is handled via CSS, but we could add
-    // additional terminal-like effects here if needed
+    const animationObserver = new IntersectionObserver(function(entries) {
+        entries.forEach(entry => {
+            const animatedEls = entry.target.querySelectorAll(
+                '.icon-ring, .floating-shape'
+            );
+            animatedEls.forEach(el => {
+                el.style.animationPlayState = entry.isIntersecting ? 'running' : 'paused';
+            });
+        });
+    }, { threshold: 0 });
+
+    // Observe the toolbox section
+    const toolboxSection = document.querySelector('.toolbox');
+    if (toolboxSection) {
+        animationObserver.observe(toolboxSection);
+    }
+
+    // Pause hero visual float animation when off-screen
+    const heroVisual = document.querySelector('.hero-visual');
+    if (heroVisual) {
+        const heroObserver = new IntersectionObserver(function(entries) {
+            entries.forEach(entry => {
+                const floatingCard = entry.target.querySelector('.glass-card');
+                if (floatingCard) {
+                    floatingCard.style.animationPlayState = entry.isIntersecting ? 'running' : 'paused';
+                }
+            });
+        }, { threshold: 0 });
+        heroObserver.observe(heroVisual);
+    }
+
+    // Pause blob animations when tab is hidden
+    document.addEventListener('visibilitychange', function() {
+        var blobs = document.querySelectorAll('.blob');
+        blobs.forEach(function(blob) {
+            blob.style.animationPlayState = document.hidden ? 'paused' : 'running';
+        });
+    });
 
     console.log('Liquid Glass Portfolio loaded successfully! 🌊');
 })();

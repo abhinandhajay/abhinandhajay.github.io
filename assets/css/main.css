@@ -86,6 +86,7 @@ body {
     overflow: hidden;
     z-index: -1;
     background: linear-gradient(180deg, var(--color-depth-1) 0%, var(--color-depth-2) 50%, var(--color-depth-3) 100%);
+    contain: strict;
 }
 
 .blob {
@@ -94,6 +95,8 @@ body {
     filter: blur(60px);
     opacity: 0.5;
     animation: morph 20s ease-in-out infinite;
+    will-change: transform;
+    contain: strict;
 }
 
 .blob-1 {
@@ -134,19 +137,15 @@ body {
 
 @keyframes morph {
     0%, 100% {
-        border-radius: 40% 60% 70% 30% / 40% 50% 60% 50%;
         transform: translate(0, 0) scale(1);
     }
     25% {
-        border-radius: 60% 40% 30% 70% / 60% 30% 70% 40%;
         transform: translate(5%, 5%) scale(1.1);
     }
     50% {
-        border-radius: 30% 60% 70% 40% / 50% 60% 30% 60%;
         transform: translate(-5%, 5%) scale(0.9);
     }
     75% {
-        border-radius: 70% 30% 50% 50% / 30% 70% 50% 50%;
         transform: translate(3%, -3%) scale(1.05);
     }
 }
@@ -309,11 +308,9 @@ body {
 }
 
 .btn-primary {
-    background: rgba(0, 217, 255, 0.1);
+    background: rgba(0, 217, 255, 0.14);
     color: var(--color-text-primary);
     border: 1px solid rgba(0, 217, 255, 0.25);
-    backdrop-filter: blur(16px);
-    -webkit-backdrop-filter: blur(16px);
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.25);
 }
 
@@ -331,11 +328,9 @@ body {
 }
 
 .btn-secondary {
-    background: rgba(255, 255, 255, 0.04);
+    background: rgba(255, 255, 255, 0.06);
     color: var(--color-text-primary);
     border: 1px solid rgba(255, 255, 255, 0.08);
-    backdrop-filter: blur(16px);
-    -webkit-backdrop-filter: blur(16px);
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
 }
 
@@ -575,6 +570,7 @@ body {
 .section {
     padding: var(--space-2xl) var(--space-lg);
     position: relative;
+    contain: content;
 }
 
 .section-header {
@@ -954,8 +950,12 @@ body {
         grid-template-columns: repeat(2, 1fr);
     }
 
-    /* Make blobs smaller on mobile */
-    .blob-1, .blob-2, .blob-3, .blob-4 {
+    /* Reduce blobs on mobile — 2 is plenty */
+    .blob-3, .blob-4 {
+        display: none;
+    }
+
+    .blob-1, .blob-2 {
         width: 300px;
         height: 300px;
     }
@@ -1015,6 +1015,9 @@ body {
     .glass-card {
         padding: var(--space-md);
         border-radius: 16px;
+        backdrop-filter: none;
+        -webkit-backdrop-filter: none;
+        background: rgba(15, 39, 68, 0.65);
     }
 
     .terminal {
@@ -1066,11 +1069,20 @@ body {
         font-size: 1.5rem;
     }
 
-    /* Smaller blobs on very small screens */
-    .blob-1, .blob-2, .blob-3, .blob-4 {
+    /* Remove blur on very small screens — use soft gradients instead */
+    .blob-1, .blob-2 {
         width: 250px;
         height: 250px;
-        filter: blur(40px);
+        filter: none;
+        opacity: 0.4;
+    }
+
+    .blob-1 {
+        background: radial-gradient(circle, var(--color-cyan-bright) 0%, transparent 50%);
+    }
+
+    .blob-2 {
+        background: radial-gradient(circle, var(--color-teal-bright) 0%, transparent 50%);
     }
 }
 
