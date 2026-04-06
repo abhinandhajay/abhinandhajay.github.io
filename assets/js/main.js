@@ -118,10 +118,10 @@
         });
     }, { threshold: 0 });
 
-    // Observe the toolbox section
-    const toolboxSection = document.querySelector('.toolbox');
-    if (toolboxSection) {
-        animationObserver.observe(toolboxSection);
+    // Observe the projects section
+    const projectsSection = document.querySelector('.projects');
+    if (projectsSection) {
+        animationObserver.observe(projectsSection);
     }
 
     // Pause hero visual float animation when off-screen
