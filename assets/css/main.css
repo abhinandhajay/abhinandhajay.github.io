@@ -659,6 +659,83 @@ body {
     opacity: 0.5;
 }
 
+/* === ZEE PROJECT FEATURE === */
+.projects-showcase {
+    max-width: 1180px;
+    margin: 0 auto var(--space-lg);
+}
+
+.zee-card {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-lg);
+    align-items: flex-start;
+    max-width: 1180px;
+    margin: 0 auto;
+    padding: var(--space-xl);
+}
+
+.project-showcase-card {
+    background: rgba(15, 39, 68, 0.68);
+}
+
+.zee-content {
+    position: relative;
+    z-index: 1;
+}
+
+.zee-content h3 {
+    font-family: var(--font-display);
+    font-size: clamp(2rem, 4vw, 3rem);
+    font-weight: 800;
+    margin-bottom: var(--space-sm);
+}
+
+.zee-content p {
+    color: var(--color-text-secondary);
+    line-height: 1.75;
+    margin-bottom: var(--space-md);
+}
+
+.zee-content .zee-lead {
+    font-size: 1.25rem;
+    color: var(--color-text-primary);
+}
+
+.zee-icon {
+    background: linear-gradient(135deg, var(--color-teal-bright) 0%, var(--color-cyan-medium) 100%);
+    box-shadow: 0 16px 42px rgba(20, 241, 149, 0.28);
+}
+
+.zee-metrics {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: var(--space-sm);
+    width: 100%;
+}
+
+.zee-metric {
+    padding: 1rem 1.25rem;
+    border: 1px solid rgba(0, 217, 255, 0.14);
+    border-radius: 16px;
+    background: rgba(2, 9, 22, 0.35);
+}
+
+.zee-metric span {
+    display: block;
+    font-family: var(--font-display);
+    font-size: 1.25rem;
+    font-weight: 800;
+    color: var(--color-cyan-bright);
+    margin-bottom: 0.25rem;
+}
+
+.zee-metric p {
+    color: var(--color-text-secondary);
+    margin: 0;
+    line-height: 1.5;
+}
+
 /* === PROJECTS SECTION === */
 .projects-grid {
     display: grid;
@@ -927,6 +1004,14 @@ body {
         margin: 0 auto;
     }
 
+    .zee-card {
+        max-width: 720px;
+    }
+
+    .zee-metrics {
+        grid-template-columns: 1fr;
+    }
+
     .projects-decoration {
         display: none;
     }
@@ -975,6 +1060,14 @@ body {
     .project-card {
         padding: var(--space-lg);
         padding-top: 3.5rem;
+    }
+
+    .zee-card {
+        padding: var(--space-lg);
+    }
+
+    .zee-content .zee-lead {
+        font-size: 1.125rem;
     }
 
     .about-links {
@@ -1081,6 +1174,10 @@ body {
 
     .project-card {
         padding-top: 2.5rem;
+    }
+
+    .zee-metric {
+        padding: 0.875rem 1rem;
     }
 
     .tag {
