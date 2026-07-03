@@ -192,37 +192,49 @@
                 <div class="section-line"></div>
             </div>
 
-            <div class="projects-feature">
-                <div class="glass-card projects-card">
+            <div class="projects-grid">
+                <article class="glass-card project-card project-card-featured">
                     <div class="card-glow large"></div>
 
-                    <div class="projects-icon">
-                        <i class="fas fa-toolbox"></i>
+                    <div class="project-icon">
+                        <i class="fas fa-code-branch"></i>
                         <div class="icon-ring"></div>
                         <div class="icon-ring"></div>
                     </div>
 
-                    <div class="projects-content">
-                        <h3>Toolbox</h3>
+                    <div class="project-content">
+                        <div class="project-kicker">CLI · Git · Code Review</div>
+                        <h3>prettydiff</h3>
                         <p>
-                            A grab bag of small utilities I made because I needed them —
-                            formatters, converters, debugging helpers, that sort of thing.
+                            A local web viewer for reviewing Git changes. Run it inside any repo
+                            to open a polished side-by-side or unified diff of your working tree,
+                            then switch into branch mode when you want a PR-style review.
                         </p>
 
                         <div class="tool-tags">
-                            <span class="tag">Formatters</span>
-                            <span class="tag">Converters</span>
-                            <span class="tag">Utilities</span>
-                            <span class="tag">Dev Tools</span>
+                            <span class="tag">TypeScript</span>
+                            <span class="tag">React</span>
+                            <span class="tag">Vite</span>
+                            <span class="tag">Hono</span>
+                            <span class="tag">CLI</span>
                         </div>
 
-                        <a href="https://toolbox.abhinandhajay.com"
-                           target="_blank"
-                           rel="noopener noreferrer"
-                           class="btn btn-primary btn-large">
-                            <span>Check It Out</span>
-                            <i class="fas fa-external-link-alt"></i>
-                        </a>
+                        <div class="project-actions">
+                            <a href="https://www.npmjs.com/package/@abhinandhajay/prettydiff"
+                               target="_blank"
+                               rel="noopener noreferrer"
+                               class="btn btn-primary">
+                                <i class="fas fa-cube"></i>
+                                <span>npm Package</span>
+                            </a>
+                            <a href="https://github.com/abhinandhajay/prettydiff"
+                               target="_blank"
+                               rel="noopener noreferrer"
+                               class="btn btn-secondary">
+                                <i class="fab fa-github"></i>
+                                <span>View Repo</span>
+                            </a>
+                        </div>
                     </div>
 
                     <div class="projects-decoration">
@@ -233,10 +245,67 @@
                             <i class="fas fa-terminal"></i>
                         </div>
                         <div class="floating-shape shape-3">
-                            <i class="fas fa-cog"></i>
+                            <i class="fas fa-code-compare"></i>
                         </div>
                     </div>
-                </div>
+                </article>
+
+                <article class="glass-card project-card">
+                    <div class="card-glow large"></div>
+
+                    <div class="project-icon">
+                        <i class="fas fa-toolbox"></i>
+                        <div class="icon-ring"></div>
+                        <div class="icon-ring"></div>
+                    </div>
+
+                    <div class="project-content">
+                        <div class="project-kicker">Web App · Everyday Utilities</div>
+                        <h3>Toolbox</h3>
+                        <p>
+                            A collection of useful web utilities for everyday tasks:
+                            AI-powered receipt splitting, timezone conversion, URL cleanup,
+                            text transforms, and image processing tools.
+                        </p>
+
+                        <div class="tool-tags">
+                            <span class="tag">Next.js</span>
+                            <span class="tag">tRPC</span>
+                            <span class="tag">Gemini</span>
+                            <span class="tag">Sharp</span>
+                            <span class="tag">Tailwind</span>
+                        </div>
+
+                        <div class="project-actions">
+                            <a href="https://toolbox.abhinandhajay.com"
+                               target="_blank"
+                               rel="noopener noreferrer"
+                               class="btn btn-primary">
+                                <span>Open Toolbox</span>
+                                <i class="fas fa-external-link-alt"></i>
+                            </a>
+                            <a href="https://github.com/abhinandhajay/toolbox"
+                               target="_blank"
+                               rel="noopener noreferrer"
+                               class="btn btn-secondary">
+                                <i class="fab fa-github"></i>
+                                <span>View Repo</span>
+                            </a>
+                        </div>
+                    </div>
+
+                    <div class="projects-decoration">
+                        <div class="floating-shape shape-1">
+                            <i class="fas fa-code"></i>
+                        </div>
+                        <div class="floating-shape shape-2">
+                            <i class="fas fa-terminal"></i>
+                        </div>
+                        <div class="floating-shape shape-3">
+                            <i class="fas fa-image"></i>
+                        </div>
+                    </div>
+                </article>
             </div>
         </div>
     </section>
