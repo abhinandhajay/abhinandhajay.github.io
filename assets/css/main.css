@@ -300,7 +300,10 @@ a:hover { text-decoration-color: currentColor; }
     overflow: hidden;
 }
 
+/* The button comes first in the HTML so Tab reaches a flipped card's links right after it,
+   but it shows below the card. */
 .flip-btn {
+    order: 2;
     appearance: none;
     min-height: 38px;
     padding: 0 16px;

@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Page not found · Abhinandh Ajay</title>
+    <meta name="robots" content="noindex">
+    <meta name="theme-color" content="#0f2420">
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+    <link rel="alternate icon" href="/favicon.ico">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Young+Serif&family=Hanken+Grotesk:wght@400..700&display=swap" rel="stylesheet">
+    <!-- Absolute paths: this page is served at whatever URL was missing -->
+    <link rel="stylesheet" href="/assets/css/main.css">
+    <style>
+        .lost {
+            min-height: calc(100vh - var(--top-h));
+            display: grid;
+            grid-template-columns: minmax(0, 1fr) minmax(0, 0.8fr);
+            align-items: center;
+            gap: clamp(40px, 6vw, 88px);
+            padding-block: 48px 72px;
+            background: var(--glow);
+        }
+        .lost-copy h1 {
+            font-family: var(--font-display);
+            font-weight: var(--display-weight);
+            font-size: clamp(2.75rem, 7vw, 5.5rem);
+            line-height: var(--display-leading);
+            letter-spacing: var(--display-tracking);
+            margin-bottom: 20px;
+        }
+        .lost-copy p { color: var(--text-2); max-width: 34ch; font-size: 1.2rem; margin-bottom: 28px; }
+        .lost .card { max-width: 300px; rotate: -6deg; cursor: default; }
+        .lost .card-face { position: absolute; }
+        .lost .player-monogram { font-size: clamp(5rem, 11vw, 7rem); }
+        @media (max-width: 800px) {
+            .lost { grid-template-columns: minmax(0, 1fr); }
+            .lost .card-slot { order: -1; }
+            .lost .card { max-width: 220px; }
+        }
+    </style>
+</head>
+<body>
+    <header class="top">
+        <div class="wrap top-inner">
+            <a href="/" class="patch" aria-label="Abhinandh Ajay, home">AA</a>
+            <nav aria-label="Sections">
+                <a href="/#projects">Projects</a>
+                <a href="/#about">About</a>
+                <a href="/#contact">Contact</a>
+            </nav>
+        </div>
+    </header>
+
+    <main class="wrap lost">
+        <div class="lost-copy">
+            <h1>This card isn't in the set</h1>
+            <p>The page you're looking for doesn't exist or has moved. Check the address, or head back to the homepage.</p>
+            <a class="btn btn-ball" href="/">Back to the homepage</a>
+        </div>
+        <div class="card-slot" aria-hidden="true">
+            <div class="card">
+                <div class="card-tilt">
+                    <div class="card-inner">
+                        <div class="card-face card-front">
+                            <div class="paper">
+                                <div class="player-art">
+                                    <span class="player-monogram">404</span>
+                                    <span class="player-year">No. 404</span>
+                                </div>
+                                <div class="nameplate">
+                                    <p class="nameplate-name">Missing card</p>
+                                </div>
+                                <p class="player-pos">Page not found</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+    <!-- Visitor stats (GoatCounter): no cookies, no personal data. Remove this block to turn it off. -->
+    <script data-goatcounter="https://abhinandhajay.goatcounter.com/count" async src="https://gc.zgo.at/count.js"></script>
+</body>
+</html>
