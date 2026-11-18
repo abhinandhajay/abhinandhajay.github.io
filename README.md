@@ -16,6 +16,7 @@ assets/img/            Ada's avatar, prettydiff screenshot
 favicon.svg / .ico     Small brass-framed card
 apple-touch-icon.png
 og-image.png           Social preview (1200 x 630)
+resume/index.html      Short link: abhinandhajay.com/resume redirects to the resume on Google Drive
 CNAME                  Custom domain
 ```
 
@@ -26,6 +27,10 @@ python3 -m http.server 8000
 ```
 
 Then open http://localhost:8000.
+
+## Updating the resume
+
+Upload the new PDF over the existing Drive file (right-click it, then File information, then Manage versions, then Upload new version). The Drive link stays the same, so `abhinandhajay.com/resume` and the Resume button need no changes. If the resume ever moves off Drive, replace the URL in `resume/index.html`.
 
 ## Adding a card
 
