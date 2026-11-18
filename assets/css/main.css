@@ -99,16 +99,23 @@ a:hover { text-decoration-color: currentColor; }
 
 /* ---------- Header ---------- */
 
+/* Solid header on its own layer. A blurred, see-through header flickered when the
+   3D cards scrolled under it, so the cards' 3D drawing is also kept inside <main>. */
 .top {
     position: sticky;
     top: 0;
     z-index: 50;
     height: var(--top-h);
-    background: color-mix(in srgb, var(--bg) 82%, transparent);
-    -webkit-backdrop-filter: blur(14px);
-    backdrop-filter: blur(14px);
+    background: var(--bg);
     border-bottom: 1px solid transparent;
+    transform: translateZ(0);
     transition: border-color 0.2s;
+}
+
+main {
+    position: relative;
+    z-index: 0;
+    isolation: isolate;
 }
 .top.is-scrolled { border-bottom-color: var(--line); }
 
@@ -265,7 +272,8 @@ a:hover { text-decoration-color: currentColor; }
 .card.is-flipped .card-front,
 .card:not(.is-flipped) .card-back { pointer-events: none; }
 
-/* holographic foil that follows the pointer */
+/* Holographic foil that follows the pointer. Plain alpha instead of a blend mode:
+   Safari ignores mix-blend-mode on 3D layers and painted the foil at full strength. */
 .card-face::after {
     content: '';
     position: absolute;
@@ -273,12 +281,12 @@ a:hover { text-decoration-color: currentColor; }
     border-radius: inherit;
     pointer-events: none;
     background:
-        radial-gradient(circle at var(--mx) var(--my), rgba(255, 255, 255, 0.55), transparent 42%),
-        linear-gradient(115deg, transparent 15%, rgba(255, 90, 210, 0.32) 32%, rgba(80, 230, 255, 0.32) 48%, rgba(210, 255, 90, 0.32) 62%, transparent 80%);
+        radial-gradient(circle at var(--mx) var(--my), rgba(255, 255, 255, 0.22), transparent 45%),
+        linear-gradient(115deg, transparent 20%, rgba(255, 120, 220, 0.11) 35%, rgba(110, 230, 255, 0.11) 50%, rgba(225, 255, 120, 0.11) 65%, transparent 80%);
     background-size: 100% 100%, 260% 260%;
     background-position: center, var(--mx) var(--my);
-    mix-blend-mode: overlay;
     opacity: 0;
+    will-change: opacity;  /* keep the layer ready so Safari doesn't flash it on hover */
     transition: opacity 0.35s;
 }
 .card:hover .card-face::after,
