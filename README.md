@@ -1,106 +1,36 @@
-# Abhinandh Ajay - Portfolio Website
+# abhinandhajay.com
 
-A modern, glassmorphic portfolio website featuring a distinctive blue/cyan liquid design theme with flowing organic shapes and elevated visual effects.
+My personal site. Static HTML, CSS, and a little JavaScript, served by GitHub Pages.
 
-🌐 **Live Site**: [abhinandhajay.com](https://abhinandhajay.com)
+The hero is a collectible card for me, and each project is a numbered card with brass frames on a deep green page. Cards deal in as they scroll into view, tilt toward the cursor with a foil shine, and flip over to show details and links. Everything holds still when the system asks for reduced motion.
 
-## Features
+Colors and fonts are CSS variables at the top of `assets/css/main.css`, so a new theme only means changing that block.
 
-- **Liquid Glass Design**: Modern glassmorphism with flowing animated background blobs
-- **Responsive Layout**: Fully responsive design that works seamlessly across all devices
-- **Smooth Animations**: Elegant fade-in animations and floating effects
-- **Performance Optimized**: Clean, semantic HTML with optimized CSS
-- **SEO Ready**: Complete meta tags for search engines and social media sharing
-- **Accessible**: WCAG-compliant with reduced motion support and keyboard navigation
-
-## Design System
-
-### Color Palette
-- **Deep Ocean Blues**: `#020916`, `#0A1929`, `#0F2744`, `#1A3A5C`
-- **Bright Cyans**: `#00F5FF`, `#00D9FF`, `#00B8D4`
-- **Accent Teals**: `#14F195`, `#00C9A7`
-
-### Typography
-- **Display Font**: DM Sans (headings, buttons, navigation)
-- **Body Font**: Inter (paragraphs, descriptions)
-
-### Key Components
-- Glassmorphic cards with hover effects
-- Terminal-style code display
-- Floating animation effects
-- Mobile-first responsive design
-- Touch-optimized for mobile devices
-
-## Project Structure
+## Structure
 
 ```
-.
-├── index.html           # Main HTML file
-├── favicon.svg          # SVG favicon
-├── CNAME               # Custom domain configuration
-├── README.md           # This file
-└── assets/
-    ├── css/
-    │   └── main.css    # All styles
-    └── js/
-        └── main.js     # Navigation and interactions
+index.html             The whole page
+assets/css/main.css    Styles and animations
+assets/js/main.js      Deal-in, tilt, flip, stat count-up, copy button, header line
+assets/img/            Ada's avatar, prettydiff screenshot
+favicon.svg / .ico     Small brass-framed card
+apple-touch-icon.png
+og-image.png           Social preview (1200 x 630)
+CNAME                  Custom domain
 ```
 
-## Sections
+## Run locally
 
-1. **Hero**: Introduction with animated terminal display
-2. **About**: Personal background and social links
-3. **Toolbox**: Featured developer tools collection
-4. **Contact**: Email and social media connections
+```sh
+python3 -m http.server 8000
+```
 
-## Technologies
+Then open http://localhost:8000.
 
-- Pure HTML5, CSS3, JavaScript (no frameworks)
-- Google Fonts (DM Sans, Inter)
-- Font Awesome icons
-- CSS Grid & Flexbox
-- CSS Custom Properties (variables)
-- CSS Animations & Transitions
+## Adding a card
 
-## Local Development
+Copy one of the `.card-slot` blocks inside `.set` in `index.html`. Set `--frame` (the color of the rule under the title on the back) and `--art` (art background) on the `.card`, and bump `--i` on the slot so it deals in after the others. Put any number you want counted up on flip in `<span data-count="N">N</span>`.
 
-1. Clone the repository:
-   ```bash
-   git clone https://github.com/abhinandhajay/abhinandhajay.github.io.git
-   ```
+## Type
 
-2. Open `index.html` in your browser or use a local server:
-   ```bash
-   # Using Python
-   python -m http.server 8000
-
-   # Using Node.js
-   npx serve
-   ```
-
-3. Visit `http://localhost:8000` in your browser
-
-## Browser Support
-
-- Chrome/Edge (latest)
-- Firefox (latest)
-- Safari (latest)
-- Mobile browsers (iOS Safari, Chrome Mobile)
-
-## Performance
-
-- Optimized animations with hardware acceleration
-- Reduced motion support for accessibility
-- Efficient CSS with minimal JavaScript
-- Fast load times with minimal dependencies
-
-## License
-
-© 2026 Abhinandh Ajay. All rights reserved.
-
-## Contact
-
-- Email: [abhinandhajay@gmail.com](mailto:abhinandhajay@gmail.com)
-- LinkedIn: [linkedin.com/in/abhinandh-ajay](https://www.linkedin.com/in/abhinandh-ajay/)
-- GitHub: [github.com/abhinandhajay](https://github.com/abhinandhajay)
-- Twitter: [@abhinandhajay](https://twitter.com/abhinandhajay)
+Young Serif for headings and Hanken Grotesk for everything else, both from Google Fonts.
