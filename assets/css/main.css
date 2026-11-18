@@ -265,6 +265,7 @@ main {
     backface-visibility: hidden;
     -webkit-backface-visibility: hidden;
     overflow: hidden;
+    isolation: isolate;
     color: var(--paper-ink);
 }
 .card-back { transform: rotateY(180deg); }
@@ -272,8 +273,8 @@ main {
 .card.is-flipped .card-front,
 .card:not(.is-flipped) .card-back { pointer-events: none; }
 
-/* Holographic foil that follows the pointer. Plain alpha instead of a blend mode:
-   Safari ignores mix-blend-mode on 3D layers and painted the foil at full strength. */
+/* Holographic foil that follows the pointer. The layer is kept ready (will-change,
+   its own 3D layer) and blended inside the card face, so Safari doesn't flash it on hover. */
 .card-face::after {
     content: '';
     position: absolute;
@@ -281,12 +282,14 @@ main {
     border-radius: inherit;
     pointer-events: none;
     background:
-        radial-gradient(circle at var(--mx) var(--my), rgba(255, 255, 255, 0.22), transparent 45%),
-        linear-gradient(115deg, transparent 20%, rgba(255, 120, 220, 0.11) 35%, rgba(110, 230, 255, 0.11) 50%, rgba(225, 255, 120, 0.11) 65%, transparent 80%);
+        radial-gradient(circle at var(--mx) var(--my), rgba(255, 255, 255, 0.55), transparent 42%),
+        linear-gradient(115deg, transparent 15%, rgba(255, 90, 210, 0.32) 32%, rgba(80, 230, 255, 0.32) 48%, rgba(210, 255, 90, 0.32) 62%, transparent 80%);
     background-size: 100% 100%, 260% 260%;
     background-position: center, var(--mx) var(--my);
+    mix-blend-mode: overlay;
     opacity: 0;
-    will-change: opacity;  /* keep the layer ready so Safari doesn't flash it on hover */
+    will-change: opacity;
+    transform: translateZ(0);
     transition: opacity 0.35s;
 }
 .card:hover .card-face::after,
